@@ -63,10 +63,7 @@ body {
   z-index: -1;
 }
 
-@keyframes scanline {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100%); }
-}
+@keyframes scanline { 0% { transform: translateY(0); } 100% { transform: translateY(100%); } }
 
 .container {
   width: 100%;
@@ -80,125 +77,35 @@ body {
   animation: containerGlitch 8s infinite;
 }
 
-@keyframes containerGlitch {
-  0%,100% { transform: none; }
-  94% { transform: skew(1deg); }
-  97% { transform: skew(-1deg); }
-}
+@keyframes containerGlitch { 0%,100% { transform: none; } 94% { transform: skew(1deg); } 97% { transform: skew(-1deg); } }
 
-.avatar {
-  margin-bottom: 20px;
-}
+.avatar { margin-bottom: 20px; }
+.avatar img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--neon-main); box-shadow: 0 0 35px var(--neon-main); animation: flicker 4s infinite; }
+@keyframes flicker { 0%,100% { opacity: 1; } 96% { opacity: 0.4; } 97% { opacity: 1; } }
 
-.avatar img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 3px solid var(--neon-main);
-  box-shadow: 0 0 35px var(--neon-main);
-  animation: flicker 4s infinite;
-}
+.username { font-size: 1.6em; font-weight: 700; color: var(--neon-main); margin: 12px 0 4px; text-shadow: 0 0 15px var(--neon-main); }
+.tag { display: block; color: var(--neon-accent); font-size: 0.95em; margin-bottom: 6px; text-decoration: none; }
+.description { color: #ccc; font-size: 0.85em; margin-bottom: 18px; line-height: 1.3; }
 
-@keyframes flicker {
-  0%,100% { opacity: 1; }
-  96% { opacity: 0.4; }
-  97% { opacity: 1; }
-}
+.title { font-size: 2.4em; font-weight: 700; letter-spacing: 2.5px; color: var(--neon-main); text-shadow: 0 0 20px var(--neon-main); position: relative; line-height: 1.2; }
 
-.title {
-  font-size: 2.4em;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  color: var(--neon-main);
-  text-shadow: 0 0 20px var(--neon-main);
-  position: relative;
-  line-height: 1.2;
-}
+.subtitle { margin: 12px 0 28px; color: var(--neon-accent); letter-spacing: 2px; font-size: 0.95em; }
 
-.title::before,
-.title::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0.7;
-}
-
-.title::before {
-  color: var(--neon-accent);
-  clip-path: polygon(0 0,100% 0,100% 45%,0 45%);
-  animation: glitchTop 3s infinite;
-}
-
-.title::after {
-  color: var(--neon-main);
-  clip-path: polygon(0 75%,100% 25%,100% 100%,0 100%);
-  animation: glitchBottom 2.5s infinite;
-}
-
-@keyframes glitchTop {
-  0% { transform: translate(0); }
-  50% { transform: translate(-2px,2px); }
-  100% { transform: translate(0); }
-}
-
-@keyframes glitchBottom {
-  0% { transform: translate(0); }
-  50% { transform: translate(2px,-2px); }
-  100% { transform: translate(0); }
-}
-
-.subtitle {
-  margin: 12px 0 28px;
-  color: var(--neon-accent);
-  letter-spacing: 2px;
-  font-size: 0.95em;
-}
-
-.links a {
-  display: block;
-  margin: 14px 0;
-  padding: 14px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: white;
+.links-container, .links { display: flex; flex-direction: column; gap: 14px; }
+.link-button {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px; border-radius: 12px; text-decoration: none; color: #fff;
   background: linear-gradient(90deg, var(--neon-main), var(--neon-accent));
   box-shadow: 0 0 18px rgba(255,128,191,0.4);
   transition: transform 0.25s, box-shadow 0.25s;
 }
+.link-button:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(255,128,191,0.6); }
 
-.links a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(255,128,191,0.6);
-}
+.footer { margin-top: 26px; font-size: 0.8em; color: #bbb; opacity: 0.7; }
 
-.footer {
-  margin-top: 26px;
-  font-size: 0.8em;
-  color: #bbb;
-  opacity: 0.7;
-}
-
-.binary-rain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.binary {
-  position: absolute;
-  color: var(--neon-main);
-  font-size: 14px;
-  animation: fall linear infinite;
-  opacity: 0;
-}
-
-@keyframes fall {
-  0% { transform: translateY(-100%); opacity: 0; }
-  30% { opacity: 0.5; }
-  100% { transform: translateY(100vh); opacity: 0; }
+.binary-rain { position: fixed; inset: 0; pointer-events: none; z-index: -1; }
+.binary { position: absolute; color: var(--neon-main); font-size: 14px; animation: fall linear infinite; opacity: 0; }
+@keyframes fall { 0% { transform: translateY(-100%); opacity: 0; } 30% { opacity: 0.5; } 100% { transform: translateY(100vh); opacity: 0; }
 }
 </style>
 </head>
@@ -214,19 +121,21 @@ body {
     <img src="https://avatars.githubusercontent.com/u/254073163?v=4" alt="Muhammad Raghid Setiawan">
   </div>
 
-  <h1 class="title" data-text="MUHAMMAD RAGHID SETIAWAN">
-    MUHAMMAD RAGHID SETIAWAN
-  </h1>
+  <h1 class="username">Muhammad Raghid Setiawan</h1>
+  <a href="#" class="tag" aria-label="username @raghidsetiawan">@raghid.setiawan</a>
+  <p class="description">Love you hurt? You are strong, made by your hurt!</p>
 
-  <div class="subtitle">[ PUBLIC DIGITAL PROFILE ]</div>
-
-  <div class="links">
-    <a href="https://github.com/raghid-setiawan" target="_blank">GitHub</a>
-    <a href="https://instagram.com/raghid.setiawan" target="_blank">Instagram</a>
+  <div class="links-container">
+    <a href="https://github.com/raghid-setiawan/Sertifikat" class="link-button" target="_blank" rel="noopener noreferrer">
+      <img src="certificate.png" alt="Sertifikat" /> Sertifikat
+    </a>
+    <a href="https://instagram.com/raghid.setiawan" class="link-button" target="_blank" rel="noopener noreferrer">
+      <img src="instagram.png" alt="Instagram" /> Instagram
+    </a>
   </div>
 
   <div class="footer">
-    © 2025 Muhammad Raghid Setiawan • Open Identity Node
+    © 2025 Muhammad Raghid Setiawan • Open Digital Profile
   </div>
 </div>
 
@@ -242,5 +151,6 @@ function createBinary() {
 }
 setInterval(createBinary, 120);
 </script>
+
 </body>
 </html>
